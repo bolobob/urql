@@ -8,6 +8,11 @@ it('stringifies objects stabily', () => {
   );
 });
 
+it('stringifies objects value is undefined', () => {
+  expect(stringifyVariables({ a: undefined })).toBe('{}');
+  expect(stringifyVariables({ a: 'a', b: undefined })).toBe('{"a":"a"}');
+});
+
 it('stringifies arrays', () => {
   expect(stringifyVariables([1, 2])).toBe('[1,2]');
   expect(stringifyVariables({ x: [1, 2] })).toBe('{"x":[1,2]}');
